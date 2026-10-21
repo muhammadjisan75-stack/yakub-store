@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#087443">
+<title>Yakub Store | অনলাইন মুদি দোকান</title>
+<style>
+:root{--green:#087443;--deep:#064b2c;--pale:#edf8f0;--ink:#173327;--muted:#64756b;--line:#dce9df;--white:#fff;--gold:#f2c94c}
+*{box-sizing:border-box}body{margin:0;background:#f7faf7;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif}
+header{background:linear-gradient(120deg,var(--deep),var(--green));color:white;padding:17px max(16px,calc((100% - 1120px)/2));}
+.top{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}.brand{font-size:1.5rem;font-weight:850;letter-spacing:-.4px}.brand small{display:block;font-size:.78rem;font-weight:500;opacity:.85}
+.search{display:flex;gap:8px;flex:1;max-width:460px}.search input{width:100%;padding:12px;border:0;border-radius:10px;font:inherit}.search button,.btn{background:#f4d45f;color:#173327;border:0;border-radius:10px;padding:11px 15px;font-weight:800;cursor:pointer}
+.cartBtn{background:white;color:var(--deep);border:0;border-radius:10px;padding:11px 14px;font-weight:800;cursor:pointer}
+nav{display:flex;gap:18px;flex-wrap:wrap;padding-top:16px;font-size:.92rem}nav a{color:white;text-decoration:none;opacity:.95}
+main{max-width:1120px;margin:22px auto;padding:0 16px}.hero{background:linear-gradient(115deg,#e5f6e9,#f8fff9);border:1px solid #d6eadb;border-radius:20px;padding:28px;display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:center}
+.hero h1{font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.25;margin:0 0 12px;color:var(--deep)}.hero p{color:#476453;line-height:1.7;margin:0 0 18px}.heroArt{font-size:5.5rem;text-align:center;background:white;border-radius:18px;padding:20px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.pill{background:white;border:1px solid var(--line);border-radius:999px;padding:7px 11px;font-size:.83rem}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:28px 0 14px}.sectionHead h2{margin:0;font-size:1.45rem}.sectionHead p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+.notice{border:1px solid #f0dfaa;background:#fff9e5;border-radius:12px;padding:12px 14px;color:#69541a;font-size:.9rem;line-height:1.6}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:0 5px 15px #12301a08}.productIcon{height:125px;background:var(--pale);border-radius:12px;display:grid;place-items:center;font-size:3.4rem}.product h3{margin:12px 0 4px;font-size:1.06rem}.meta{color:var(--muted);font-size:.88rem}.price{font-weight:850;color:var(--deep);font-size:1.2rem;margin:10px 0}.product button{width:100%;background:var(--green);color:white;border:0;border-radius:10px;padding:11px;font:inherit;font-weight:750;cursor:pointer}.product button:disabled{background:#9aa9a0;cursor:not-allowed}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:22px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px}.panel h2{margin:0 0 14px}.field{display:grid;gap:6px;margin:12px 0}.field label{font-weight:700;font-size:.92rem}.field input,.field textarea,.field select{width:100%;padding:11px;border:1px solid #ccdcd0;border-radius:9px;font:inherit;background:white}.field textarea{min-height:75px;resize:vertical}.cartItem{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}.qty{display:flex;align-items:center;gap:8px}.qty button{border:1px solid var(--line);background:white;border-radius:7px;width:29px;height:29px;cursor:pointer}.total{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:850;margin:15px 0}.primary{background:var(--green);color:white;border:0;border-radius:10px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;width:100%}.muted{color:var(--muted);font-size:.88rem;line-height:1.65}.status{padding:10px;border-radius:10px;background:var(--pale);color:var(--deep);display:none;margin-top:12px}
+.admin{margin-top:22px}.admin details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px}.admin summary{font-weight:800;cursor:pointer}.adminTools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.adminTools input{padding:9px;border:1px solid var(--line);border-radius:8px}.adminTools button{border:1px solid var(--line);border-radius:8px;background:white;padding:9px 12px;cursor:pointer}.orderRow{border-top:1px solid var(--line);padding:12px 0;font-size:.9rem;line-height:1.6}
+footer{margin-top:35px;background:#073f27;color:#eaf7ee;padding:25px 16px;text-align:center;line-height:1.8}.footerInner{max-width:1120px;margin:auto}.small{font-size:.8rem;opacity:.85}
+@media(max-width:800px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.heroArt{font-size:4rem}.layout{grid-template-columns:1fr}.search{order:3;max-width:none;flex-basis:100%}}
+@media(max-width:420px){.products{gap:9px}.product{padding:9px}.productIcon{height:95px}.brand{font-size:1.25rem}.hero{padding:19px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top">
+  <div class="brand">🛒 Yakub Store<small>আপনার প্রতিদিনের প্রয়োজন, এক জায়গায়</small></div>
+  <div class="search"><input id="search" placeholder="পণ্য খুঁজুন..." aria-label="পণ্য খুঁজুন"><button onclick="renderProducts()">খুঁজুন</button></div>
+  <button class="cartBtn" onclick="document.getElementById('cartPanel').scrollIntoView({behavior:'smooth'})">🛍️ কার্ট <span id="cartCount">0</span></button>
+ </div>
+ <nav><a href="#home">হোম</a><a href="#products">পণ্যসমূহ</a><a href="#cartPanel">কার্ট ও অর্ডার</a><a href="#admin">অ্যাডমিন</a></nav>
+</header>
+<main id="home">
+ <section class="hero">
+  <div><h1>প্রতিদিনের বাজার<br>এখন আরও সহজ</h1><p>Yakub Store-এ প্রয়োজনীয় পণ্য খুঁজুন, কার্টে রাখুন এবং আপনার অর্ডারের তথ্য দিন।</p><button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">পণ্য দেখুন →</button>
+   <div class="pills"><span class="pill">🌿 সহজ কেনাকাটা</span><span class="pill">📱 মোবাইল-ফ্রেন্ডলি</span><span class="pill">৳ বাংলাদেশি টাকা</span></div>
+  </div><div class="heroArt" aria-hidden="true">🛒🥬🍚</div>
+ </section>
+ <div class="sectionHead"><div><h2 id="products">জনপ্রিয় পণ্য</h2><p>দাম ও সাইজ দেখে পছন্দের পণ্য বেছে নিন</p></div></div>
+ <div class="notice">দ্রষ্টব্য: এটি প্রাথমিক ডেমো। এখানে অর্ডার ব্রাউজারের এই ডিভাইসেই সংরক্ষিত হয়; এখনো অনলাইন সার্ভার, লাইভ পেমেন্ট বা কুরিয়ার সংযোগ করা নেই।</div>
+ <section class="products" id="productGrid" style="margin-top:14px"></section>
+ <section class="layout">
+  <div class="panel" id="cartPanel"><h2>🛍️ তোমার কার্ট</h2><div id="cartItems"><p class="muted">কার্টে এখনো কোনো পণ্য নেই।</p></div><div class="total"><span>মোট</span><span id="cartTotal">৳০</span></div></div>
+  <div class="panel"><h2>📦 অর্ডার তথ্য</h2><form id="checkout">
+   <div class="field"><label for="customer">আপনার নাম</label><input id="customer" required placeholder="নাম লিখুন"></div>
+   <div class="field"><label for="phone">মোবাইল নম্বর</label><input id="phone" required inputmode="tel" placeholder="01XXXXXXXXX"></div>
+   <div class="field"><label for="address">ডেলিভারি ঠিকানা</label><textarea id="address" required placeholder="বাড়ি, রাস্তা, এলাকা, জেলা"></textarea></div>
+   <div class="field"><label for="payment">পেমেন্ট পদ্ধতি</label><select id="payment"><option>ক্যাশ অন ডেলিভারি</option><option>bKash (ম্যানুয়াল যাচাই প্রয়োজন)</option><option>Nagad (ম্যানুয়াল যাচাই প্রয়োজন)</option></select></div>
+   <button class="primary" type="submit">ডেমো অর্ডার তৈরি করুন</button><div class="status" id="orderStatus" role="status"></div>
+   <p class="muted">বাস্তব অর্ডার নিশ্চিত করার আগে দোকানদারকে সরাসরি যোগাযোগ করে ডেলিভারি ও পেমেন্ট যাচাই করুন।</p>
+  </form></div>
+ </section>
+ <section class="admin" id="admin"><details><summary>⚙️ অ্যাডমিন প্যানেল — ডেমো অর্ডার দেখুন</summary>
+  <p class="muted">এই ডেমোতে অর্ডারগুলো এই ব্রাউজারের লোকাল স্টোরেজে থাকে। এটি নিরাপদ, বহু-ব্যবহারকারী অ্যাডমিন সিস্টেম নয়।</p>
+  <div class="adminTools"><button onclick="showOrders()">অর্ডার রিফ্রেশ</button><button onclick="exportOrders()">অর্ডার CSV ডাউনলোড</button><button onclick="clearOrders()">ডেমো অর্ডার মুছুন</button></div><div id="ordersList"><p class="muted">এখনো কোনো ডেমো অর্ডার নেই।</p></div>
+ </details></section>
+</main>
+<footer><div class="footerInner"><strong>Yakub Store</strong><br>অনলাইন মুদি দোকান<br><span class="small">ডেমো যোগাযোগ নম্বর: 01817610102 · সারা বাংলাদেশে ডেলিভারি পরিকল্পিত<br>এই পৃষ্ঠাটি এখনো প্রকাশিত অনলাইন দোকান বা পেমেন্ট সিস্টেম নয়।</span></div></footer>
+<script>
+const products = [
+ {id:'turmeric',name:'হলুদ',size:'1 kg',price:500,icon:'🟡',note:'গুঁড়া/প্যাকেটের ধরন দোকানদার নিশ্চিত করবেন',active:true},
+ {id:'cig1',name:'Lucky Strike',size:'1 প্যাকেট',price:221,icon:'🚫',note:'এই ডেমোতে তামাকজাত পণ্যের অর্ডার বন্ধ',active:false},
+ {id:'cig2',name:'Black Diamond',size:'1 প্যাকেট',price:53,icon:'🚫',note:'এই ডেমোতে তামাকজাত পণ্যের অর্ডার বন্ধ',active:false}
+];
+let cart = {};
+const money = n => '৳' + Number(n).toLocaleString('bn-BD');
+function renderProducts(){
+ const q=(document.getElementById('search').value||'').trim().toLowerCase();
+ const shown=products.filter(p=>p.name.toLowerCase().includes(q));
+ document.getElementById('productGrid').innerHTML=shown.map(p=>`<article class="product"><div class="productIcon">${p.icon}</div><h3>${p.name}</h3><div class="meta">সাইজ: ${p.size}</div><div class="price">${money(p.price)}</div>${p.active?`<button onclick="addToCart('${p.id}')">কার্টে যোগ করুন</button>`:`<button disabled>অর্ডার উপলভ্য নয়</button><p class="muted">${p.note}</p>`}</article>`).join('') || '<p>কোনো পণ্য পাওয়া যায়নি।</p>';
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;renderCart()}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];renderCart()}
+function renderCart(){
+ const entries=Object.entries(cart).filter(([id,q])=>q>0&&products.find(p=>p.id===id&&p.active));
+ document.getElementById('cartCount').textContent=entries.reduce((s,[id,q])=>s+q,0).toLocaleString('bn-BD');
+ document.getElementById('cartItems').innerHTML=entries.length?entries.map(([id,q])=>{const p=products.find(x=>x.id===id);return `<div class="cartItem"><div><strong>${p.name}</strong><div class="meta">${money(p.price)} × ${q}</div></div><div class="qty"><button onclick="changeQty('${id}',-1)">−</button><span>${q}</span><button onclick="changeQty('${id}',1)">+</button></div></div>`}).join(''):'<p class="muted">কার্টে এখনো কোনো পণ্য নেই।</p>';
+ document.getElementById('cartTotal').textContent=money(entries.reduce((s,[id,q])=>s+products.find(p=>p.id===id).price*q,0));
+}
+document.getElementById('checkout').addEventListener('submit',e=>{
+ e.preventDefault();
+ const entries=Object.entries(cart).filter(([id,q])=>q>0&&products.find(p=>p.id===id&&p.active));
+ if(!entries.length){alert('আগে কার্টে হলুদের মতো উপলভ্য পণ্য যোগ করুন।');return}
+ const order={number:'YS-'+Date.now().toString().slice(-7),date:new Date().toLocaleString('bn-BD'),customer:document.getElementById('customer').value.trim(),phone:document.getElementById('phone').value.trim(),address:document.getElementById('address').value.trim(),payment:document.getElementById('payment').value,items:entries.map(([id,q])=>({name:products.find(p=>p.id===id).name,size:products.find(p=>p.id===id).size,qty:q,price:products.find(p=>p.id===id).price})),total:entries.reduce((s,[id,q])=>s+products.find(p=>p.id===id).price*q,0)};
+ const orders=JSON.parse(localStorage.getItem('yakubDemoOrders')||'[]');orders.unshift(order);localStorage.setItem('yakubDemoOrders',JSON.stringify(orders));
+ const st=document.getElementById('orderStatus');st.style.display='block';st.textContent='ডেমো অর্ডার তৈরি হয়েছে: '+order.number+'। এটি দোকানে পাঠানো হয়নি; শুধু এই ডিভাইসে সংরক্ষিত হয়েছে।';
+ cart={};renderCart();showOrders();
+});
+function showOrders(){
+ const orders=JSON.parse(localStorage.getItem('yakubDemoOrders')||'[]');
+ document.getElementById('ordersList').innerHTML=orders.length?orders.map(o=>`<div class="orderRow"><strong>${o.number}</strong> · ${o.date}<br>${escapeHtml(o.customer)} · ${escapeHtml(o.phone)}<br>${escapeHtml(o.address)}<br>${o.items.map(i=>`${escapeHtml(i.name)} × ${i.qty}`).join(', ')}<br><strong>মোট: ${money(o.total)}</strong> · ${escapeHtml(o.payment)}</div>`).join(''):'<p class="muted">এখনো কোনো ডেমো অর্ডার নেই।</p>';
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function exportOrders(){
+ const orders=JSON.parse(localStorage.getItem('yakubDemoOrders')||'[]');
+ if(!orders.length){alert('এক্সপোর্ট করার অর্ডার নেই।');return}
+ const rows=[['Order','Date','Customer','Phone','Address','Items','Total BDT','Payment'],...orders.map(o=>[o.number,o.date,o.customer,o.phone,o.address,o.items.map(i=>`${i.name} x${i.qty}`).join('; '),o.total,o.payment])];
+ const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));a.download='yakub-store-demo-orders.csv';a.click();URL.revokeObjectURL(a.href);
+}
+function clearOrders(){if(confirm('এই ব্রাউজারের সব ডেমো অর্ডার মুছবেন?')){localStorage.removeItem('yakubDemoOrders');showOrders()}}
+renderProducts();renderCart();showOrders();
+</script>
+</body>
+</html>
